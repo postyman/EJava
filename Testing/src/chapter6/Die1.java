@@ -13,6 +13,7 @@ public class Die1 {
 		boolean again = true;
 		int response;
 		
+		//fill a 10,000 index array with random rolls of a 6-sided die
 		for (int i=0; i<10000; i++) {
 			roll = generator.nextInt(6) + 1;
 			rolls[i] = roll;
