@@ -26,10 +26,33 @@ public class Dice1 {
 		
 		int[][] rollResults = new int[students][rolls];
 		
+		//fill the array with random die rolls
 		for (int s=0; s<students; s++) {
 			for (int r=0; r<rolls; r++) {
 				rollResults[s][r] = (rand.nextInt(sides) + 1);
 			}
+		}
+		
+		//print the results by student
+		System.out.println("Rolls by Student");
+		for (int s=0; s<students; s++) {
+			System.out.print("Student " + (s+1) + ": ");
+			for (int r=0; r<rolls; r++) {
+				System.out.print(rollResults[s][r] + "\t");
+			}
+			System.out.println();
+		}
+
+		System.out.println();
+		
+		//print the results by roll
+		System.out.println("Rolls by Roll Number");
+		for (int r=0; r<rolls; r++) {
+			System.out.print("Roll " + (r+1) + ": ");
+			for (int s=0; s<students; s++) {
+				System.out.print(rollResults[s][r] + "\t");
+			}
+			System.out.println();
 		}
 		
 		scanSt.close();
