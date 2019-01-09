@@ -10,7 +10,8 @@ public class Dice1 {
 		Scanner scanSt = new Scanner(System.in);
 		Scanner scanSi = new Scanner(System.in);
 		Scanner scanR = new Scanner(System.in);
-		int students, sides, rolls;
+		Scanner scanV = new Scanner(System.in);
+		int students, sides, rolls, value, count=0;
 		
 		System.out.println("How many students are in the class?");
 		students = scanSt.nextInt();
@@ -55,9 +56,30 @@ public class Dice1 {
 			System.out.println();
 		}
 		
+		System.out.println();
+		System.out.println("Show the number of times a value was rolled.");
+		System.out.println("Enter a value between 1 and " + sides + " or outside that range to quit.");
+		value = scanV.nextInt();
+		
+		while (value > 0 && value <= sides) {
+			for (int s=0; s<students; s++) {
+				for (int r=0; r<rolls; r++) {
+					if (value == rollResults[s][r]) {
+						count++;
+					}
+				}
+			}
+			System.out.println("The value " + value + " was rolled " + count + " times.");
+			count = 0;
+			System.out.println();
+			System.out.println("Enter a value between 1 and " + sides + " or outside that range to quit.");
+			value = scanV.nextInt();
+		}
+		
 		scanSt.close();
 		scanSi.close();
 		scanR.close();
+		scanV.close();
 	}
 
 }
